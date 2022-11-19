@@ -9,7 +9,7 @@ import './styles.css'
 
 function SalesCard() {
 
-    const numOfYears = 20
+    const numOfYears = 0
     const min = new Date(new Date().setDate(new Date().getDate() - numOfYears * 365))
     const max = new Date()
 
@@ -25,7 +25,7 @@ function SalesCard() {
         axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`).then(response => {
             setSales(response.data.content)
         })
-    }, [])
+    }, [minDate, maxDate])
 
     return (
         <div className="dsmeta-card">
